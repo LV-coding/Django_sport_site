@@ -1,0 +1,36 @@
+{% extends "tabata/layout.html" %}
+
+{% block body %}
+
+<section class="content">
+    <h3 class="content__title">{{ user_training.title }}</h3>
+    <div class="content__user-train-wrapper">
+        <a href="{% url 'delete_user_training' user_training.user_training_id  %}">[DELETE]</a> 
+        <a href="{% url 'edit_user_training' user_training.user_training_id  %}">[EDIT]</a>
+        <h6>Порядок виконання вправ:</h6>
+        <ol>
+            <li class="content__user-train-wrapper__work">20 с. - {{ user_training.exercise1 }}</li>
+            <li> 10 с. - відпочинок, глибоко дихайте</li>
+            <li class="content__user-train-wrapper__work">20 с. - {{ user_training.exercise2 }}</li>
+            <li>10 с. - відпочинок, глибоко дихайте</li>
+            <li class="content__user-train-wrapper__work">20 с. - {{ user_training.exercise3 }}</li>
+            <li>10 с. - відпочинок, глибоко дихайте</li>
+            <li class="content__user-train-wrapper__work">20 с. - {{ user_training.exercise4 }}</li>
+            <li>10 с. - відпочинок, глибоко дихайте</li>
+            <li class="content__user-train-wrapper__work">20 с. - {{ user_training.exercise5 }}</li>
+            <li>10 с. - відпочинок, глибоко дихайте</li>
+            <li class="content__user-train-wrapper__work">20 с. - {{ user_training.exercise6 }}</li>
+            <li>10 с. - відпочинок, глибоко дихайте</li>
+            <li class="content__user-train-wrapper__work">20 с. - {{ user_training.exercise7 }}</li>
+            <li>10 с. - відпочинок, глибоко дихайте</li>
+            <li class="content__user-train-wrapper__work">20 с. - {{ user_training.exercise8 }}</li>
+            <li>Відпочивайте, Ви молодець!</li>
+        </ol>
+        <br>
+        <h6>Ваш коментар:</h6>
+        <p>{{ user_training.comment }}</p>
+    </div>
+</section>
+
+
+{% endblock %}

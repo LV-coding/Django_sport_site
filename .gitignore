@@ -1,0 +1,8 @@
+*.pyc
+__pycache__
+tabatavenv
+db.sqlite3
+/static
+/staticfiles
+.DS_Store
+.env

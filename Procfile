@@ -1,0 +1,1 @@
+web: gunicorn fitnes_site.wsgi --log-file -

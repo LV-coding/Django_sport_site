@@ -1,0 +1,32 @@
+{% extends "tabata/layout.html" %}
+{% load static %}
+{% block body %}
+
+<section class="content">
+    <h3 class="content__title">Статті</h3>
+    <div class="content__article-wrapper">
+        {% for article in articles %}
+        <div class="content__article-wrapper__article">
+            {% if article.title_image %}
+            <img src="{{ article.title_image.url }}" alt="" class="content__article-wrapper__article__img"><br>
+            {% else %}
+            {% endif %}
+            
+            <a href="{% url 'view_article' article.article_id %}">
+                <span class="content__article-wrapper__article__title">{{article.title}} </span></a>
+            {% if request.user.is_superuser%}
+            <a href="{% url 'change_article_published' article.article_id  %}">{{ article.published }}</a>
+            {% else %}
+            {% endif %}
+            <div class="content__article-wrapper__article__published">
+                <span>Опубліковано: {{ article.created_date.date }}</span>
+            </div>
+
+
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}

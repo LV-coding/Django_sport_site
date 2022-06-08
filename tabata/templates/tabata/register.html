@@ -1,0 +1,34 @@
+{% extends "tabata/layout.html" %}
+
+{% block body %}
+
+<section class="content">
+    <div class="content__form-wrapper">
+        <form action="" method="post" class="content__form-wrapper__form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Логін" class="content__form-wrapper__form__training">
+            <input type="password" name="password" placeholder="Пароль" class="content__form-wrapper__form__training">
+            <input type="password" name="confirm_password" placeholder="Підтвердження пароля"
+                class="content__form-wrapper__form__training">
+            <input type="email" name="email" placeholder="Email" class="content__form-wrapper__form__training">
+            <div class="agree-wrapper">
+                <input type="checkbox" name="agree" id="agree" class="agree">
+                <label for="agree" class="agree">Згода на <a href="{% url 'personal_consent'  %}">обробку персональних
+                        даних</a></label>
+            </div>
+
+            <input type="submit" value="Увійти" class="btn">
+            {% if msg %}
+            <span class="content__form-wrapper__msg">{{ msg }}</span>
+            {% else %}
+            {% endif %}
+        </form>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

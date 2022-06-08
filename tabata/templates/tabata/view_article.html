@@ -1,0 +1,29 @@
+{% extends "tabata/layout.html" %}
+{% load static %}
+{% block body %}
+
+<section class="content">
+    
+    <article class="content__view">
+        {% if article.title_image %}
+        <img src="{{ article.title_image.url }}" alt="" class="content__view__img">
+        {% else %}
+        {% endif %}
+        <h6 class="content__view__title">{{ article.title }}</h6>
+        {% if request.user.is_superuser %}
+        <a href="{% url 'change_article_published' article.article_id  %}">{{ article.published }}</a><br>
+        {% else %}
+        {% endif %}
+
+
+
+        <p class="content__view__text">{{text_markdown | safe}}</p><br>
+        <span>Опубліковано: {{ article.created_date.date }}</span>
+
+
+
+    </article>
+</section>
+
+
+{% endblock %}

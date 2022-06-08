@@ -1,0 +1,28 @@
+{% extends "tabata/layout.html" %}
+{% load static %}
+{% block body %}
+
+<section class="content">
+
+    <article class="content__view">
+        <h6 class="content__view__title">{{ training.title }}</h6>
+        {% if request.user.is_superuser %}
+        <a href="{% url 'change_training_published' training.training_id  %}">{{ training.published }}</a>
+        {% else %}
+        {% endif %}
+        <span>Складність: {{ training.complexity }}</span>
+        <span>{% if training.equipment%}
+            <span>Додаткове обладнання: потрібне</span>
+            {% else %}
+            <span>Додаткове обладнання: не потрібне</span>
+            {% endif %}
+        </span><br>
+        <p class="content__view__text">{{text_markdown | safe}}</p>
+
+
+
+    </article>
+</section>
+
+
+{% endblock %}

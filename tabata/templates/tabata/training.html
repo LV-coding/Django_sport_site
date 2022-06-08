@@ -1,0 +1,33 @@
+{% extends "tabata/layout.html" %}
+{% load static %}
+{% block body %}
+
+<section class="content">
+    <h3 class="content__title">Тренувальні комплекси</h3>
+    <div class="content__wrapper">
+        {% for training in trainings %}
+        <div class="content__wrapper__tr-article">
+            <div><a href="{% url 'view_training' training.training_id  %}"><span class="content__wrapper__tr-article__title">{{training.title}}</span></a>
+            </div>
+            <div class="content__wrapper__tr-article__complexity">Складність:
+                <span class="content__wrapper__tr-article__complexity__value">{{training.complexity}}</span>
+            </div>
+
+            <div class="content__wrapper__tr-article__equipment">{% if training.equipment%}
+                Додаткове обладнання: <span class="content__wrapper__tr-article__equipment__value"> потрібне</span>
+                {% else %}
+                Додаткове обладнання: <span class="content__wrapper__tr-article__equipment__value"> не потрібне</span>
+                {% endif %}
+            </div>
+            {% if request.user.is_superuser %}
+            <a href="{% url 'change_training_published' training.training_id  %}">{{ training.published }}</a>
+            
+            {% else %}
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+</section>
+
+
+{% endblock %}
