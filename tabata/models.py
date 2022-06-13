@@ -53,7 +53,6 @@ class UserTraining(models.Model):
 class Article(models.Model):
     article_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=128)
-    title_image = models.ImageField(blank=True) #, upload_to='images/'
     text = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     published = models.BooleanField(default=False)

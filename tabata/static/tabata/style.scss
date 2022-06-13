@@ -12,6 +12,25 @@ $main-color-border: rgb(229, 253, 253);
     color: black;
 }
 
+img:not([class]) {
+
+    height: auto;
+    @media screen and (max-width: 700px) {
+        width: 100%;
+    }
+    @media screen and (max-width: 1000px) and (min-width: 701px) {
+        width: 80%;
+        margin: auto;
+        display: block;
+    }
+    @media screen  and (min-width: 1001px) {
+        width: 60%;
+        margin: auto;
+        display: block;
+    }
+}
+
+
 .content>*,
 .content>*>*,
 .content>*>*>*,
@@ -67,6 +86,11 @@ h6 {
 
             @media screen and (max-width: 400px) {
                 font-size: 20px;
+            }
+            &__small-img {
+                height: 25px;
+                width: auto;
+                margin: 0;
             }
         }
 
