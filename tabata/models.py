@@ -66,4 +66,10 @@ class Article(models.Model):
     
     def __str__(self):
         return self.title
-    
+
+class PersonalConsert(models.Model):
+    title = models.CharField(max_length=128, blank=True, default='', unique=True)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.title

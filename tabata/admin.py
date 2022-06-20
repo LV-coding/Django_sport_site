@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User, Training, Article, UserTraining
+from .models import User, Training, Article, UserTraining, PersonalConsert
 
 
 class TrainingAdmin(admin.ModelAdmin):
@@ -15,3 +15,4 @@ admin.site.register(Training, TrainingAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(UserTraining, UserTrainingAdmin)
 admin.site.register(User)
+admin.site.register(PersonalConsert)

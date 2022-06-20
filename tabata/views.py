@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from .models import Training, Article, User, UserTraining
+from .models import Training, Article, User, UserTraining, PersonalConsert
 from django.urls import reverse
 from markdown2 import markdown
 from functools import lru_cache
@@ -143,7 +143,10 @@ def register(request):
         return render(request, "tabata/register.html")
 
 def personal_consent(request):
-    return render(request, 'tabata/personal_consent.html')
+    consert = PersonalConsert.objects.get(title='main')
+    return render(request, 'tabata/personal_consent.html', {
+        'consert': markdown(consert.text)
+    })
 
 
 def account_view(request):
